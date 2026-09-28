@@ -1,0 +1,23 @@
+name: My First GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: test -f index.html
+
+      - name: Check CSS file
+        run: test -f style.css
+
+      - name: Success message
+        run: echo "My project passed GitHub Actions!"
